@@ -69,7 +69,7 @@ void loop(){
   StepsRequired  =  1*(- STEPS_PER_OUT_REV);   
   steppermotor.setSpeed(700);  
   steppermotor.step(StepsRequired);
-  //delay(43200000);//12hrs
+  ////delay(43200000);//12hrs
   delay(60000);
   }
  
