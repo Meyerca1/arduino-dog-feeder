@@ -23,11 +23,12 @@ const float GEAR_RED = 64;
 const float STEPS_PER_OUT_REV = STEPS_PER_REV * GEAR_RED;
 
 //Constant button
-const int buttonPin = 2;  //the number of the button pin
+const int buttonPin = 2;  
+const int stepPowerPin = 3;
  
-// Define Variables
+
  
-// Number of Steps Required
+
 int StepsRequired;
 
 // variables will change:
@@ -45,6 +46,7 @@ void setup()
 {
 // Nothing  (Stepper Library sets pins as outputs)
 pinMode(buttonPin, INPUT);
+pinMode(stepPowerPin, OUTPUT);
 }
  
 void loop(){
@@ -66,6 +68,7 @@ void loop(){
 //  delay(1000);
 //  
   // Rotate CCW 1/2 turn quickly
+  digitalWrite(stepPowerPin, HIGH);
   StepsRequired  =  1*(- STEPS_PER_OUT_REV);   
   steppermotor.setSpeed(700);  
   steppermotor.step(StepsRequired);
